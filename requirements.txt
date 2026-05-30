@@ -1,0 +1,49 @@
+# =============================================================================
+# CleanCare Solutions — Python Dependencies
+# Pin all versions for reproducible, auditable builds.
+# Run: pip install -r requirements.txt
+# =============================================================================
+
+# --- Web Framework ---
+fastapi==0.115.5
+uvicorn[standard]==0.32.1          # ASGI server (uvloop + httptools in prod)
+python-multipart==0.0.12           # Required for form/file parsing in FastAPI
+
+# --- Settings & Environment ---
+pydantic==2.10.3
+pydantic-settings==2.6.1           # BaseSettings with env-var loading
+python-dotenv==1.0.1
+
+# --- Database ---
+sqlalchemy==2.0.36                 # Core + async support
+aiosqlite==0.20.0                  # Async SQLite driver (development)
+asyncpg==0.30.0                    # Async PostgreSQL driver (production)
+alembic==1.14.0                    # Schema migrations
+
+# --- Redis (Session Store) ---
+redis==5.2.1                       # redis-py with async support (redis.asyncio)
+
+# --- Authentication & Cryptography ---
+argon2-cffi==23.1.0                # Argon2id password hashing
+pyotp==2.9.0                       # TOTP MFA (RFC 6238)
+cryptography==43.0.3               # HMAC, signed URLs, general crypto primitives
+
+# --- Input Validation & Sanitisation ---
+email-validator==2.2.0             # RFC 5322 email validation for Pydantic
+bleach==6.2.0                      # HTML sanitisation (belt-and-suspenders on any text fields)
+python-magic==0.4.27               # MIME type detection from magic bytes (file uploads)
+
+# --- Rate Limiting ---
+slowapi==0.1.9                     # Per-route rate limiting for FastAPI/Starlette
+
+# --- Email ---
+fastapi-mail==1.4.1                # Async SMTP email sending
+
+# --- HTTP Client (HIBP breach check) ---
+httpx==0.28.1                      # Async HTTP client
+
+# --- Structured Logging ---
+structlog==24.4.0                  # JSON-structured security event logging
+
+# --- Security Scanning (dev/CI) ---
+bandit==1.8.0                      # Static analysis — flags SQL injection risks, etc.
